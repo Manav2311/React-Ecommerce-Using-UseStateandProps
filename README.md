@@ -50,9 +50,6 @@ React-Ecommerce-Using-UseStateandProps/
    ```
 5. Open your browser and visit `http://localhost:3000` to see the app in action.
 
-## 📸 Screenshots
-![Ecommerce UI](https://via.placeholder.com/600x400)
-
 ## 📜 License
 This project is licensed under the MIT License.
 
