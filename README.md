@@ -1,8 +1,63 @@
-# React + Vite
+# React Ecommerce Using useState and Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
+This is a simple e-commerce project built using React, demonstrating the use of `useState` for state management and `props` for component communication.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Display a list of products
+- Add products to the cart
+- Remove products from the cart
+- View total price in the cart
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used
+- React.js
+- useState Hook
+- Props for component communication
+- CSS for styling
+
+## 📂 Project Structure
+```
+React-Ecommerce-Using-UseStateandProps/
+│── public/
+│── src/
+│   ├── components/
+│   │   ├── ProductList.js
+│   │   ├── Product.js
+│   │   ├── Cart.js
+│   │   ├── CartItem.js
+│   ├── App.js
+│   ├── index.js
+│── package.json
+│── README.md
+```
+
+## 🏗️ Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Manav2311/React-Ecommerce-Using-UseStateandProps.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd React-Ecommerce-Using-UseStateandProps
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+5. Open your browser and visit `http://localhost:3000` to see the app in action.
+
+## 📸 Screenshots
+![Ecommerce UI](https://via.placeholder.com/600x400)
+
+## 📜 License
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+Feel free to fork the repository and submit pull requests!
+
+## 📞 Contact
+For any issues, contact [Manav](https://github.com/Manav2311).
