@@ -1,89 +1,99 @@
 import React from "react";
 
-function ProductsCart({ items, onRemoveFromCart,removeCartItem }) {
-
-
-  const total = items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+function ProductsCart({ items, onAddToCart, onRemoveFromCart, removeCartItem }) {
+  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <>
-      <h2 style={{ marginTop: 0 }}>Shopping cart</h2>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-        {items.map((item) => (
-          <div
-            key={item.id} 
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "20px",
-              justifyContent: "center",
-              alignItems: "center",
-              marginBottom: "5px",
-              padding: "15px",
-              backgroundColor: "white",
-              borderRadius: "5px",
-              position: "relative"
-            }}
-          >
-            <div style={{}}>
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{
-                  width: "100%",
-                  height: "100px",
-                  objectFit: "cover",
-                  borderRadius: "8px",
-                }}
-              />
-              <p style={{ color: "black" }}>{item.name}</p>
-              <p style={{ color: "black" }}>
-                ${item.price}x{item.quantity}
-              </p>
-
-              <button
-                onClick={() => onRemoveFromCart(item.id)}
-                style={{
-                  color: "white",
-                  padding: "8px 15px",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  width: "100%",
-                }}
-              >
-                Decrease Quantity 
-              </button>
-
-              <span
-            style={{
-              position: "absolute",
-              top: "-5px",
-              right: "-8px",
-              // backgroundColor: "red",
-              color: "white",
-              borderRadius: "50%",
-              padding: "2px 6px",
-              fontSize: "15px",
-              fontWeight: "bold",
-              cursor:"pointer"
-            }} onClick={()=>{
-              removeCartItem(item.id)
-            }}
-          >
-            ❌ 
-          </span>
+    <div style={styles.cart}>
+      {items.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <div style={styles.cartRow}>
+          {items.map((item) => (
+            <div key={item.id} style={styles.cartItem}>
+              <img src={item.image} alt={item.name} style={styles.image} />
+              <div style={styles.details}>
+                <h3>{item.name}</h3>
+                <p>${item.price.toFixed(2)}</p>
+                <div style={styles.quantityControl}>
+                  <button onClick={() => onRemoveFromCart(item.id)} style={styles.quantityButton}>-</button>
+                  <strong>{item.quantity}</strong>
+                  <button onClick={() => onAddToCart(item)} style={styles.quantityButton}>+</button>
+                </div>
+                <button onClick={() => removeCartItem(item.id)} style={styles.removeButton}>
+                  Remove
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-
-        <h3>Total : ${total.toFixed(2)}</h3>
-      </div>
-    </>
+          ))}
+        </div>
+      )}
+      <h3>Total: ${total.toFixed(2)}</h3>
+    </div>
   );
 }
+
+const styles = {
+  cart: {
+    marginTop: "20px",
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(226, 200, 200, 0.1)",
+  },
+  cartRow: {
+    display: "flex",
+    // overflowX: "auto",
+    gap: "15px",
+    // width: '100%',
+    paddingBottom: "10px",
+  },
+  cartItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    Width: "350px",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    padding: "10px",
+    fontSize: "18px",
+    backgroundColor: "#3a3c3b",
+  },
+  image: {
+    width: "100%",
+    height: "150px",
+    objectFit: "cover",
+    borderRadius: "8px",
+    marginBottom: "10px",
+  },
+  details: {
+    textAlign: "center",
+  },
+  quantityControl: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "10px",
+  },
+  quantityButton: {
+    padding: "5px 10px",
+    backgroundColor: "#007bff",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontSize: "16px",
+    margin: "0px 8px",
+  },
+  removeButton: {
+    marginTop: "10px",
+    padding: "5px 10px",
+    backgroundColor: "#dc3545",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+  },
+};
+
 
 export default ProductsCart;

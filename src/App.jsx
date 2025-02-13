@@ -9,23 +9,23 @@ function App() {
     {
       id: 1,
       name: "Laptop",
-      price: 34545,
+      price: 80000,
       image:
-        "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://dlcdnwebimgs.asus.com/gain/1011e6a8-271d-411f-935b-46309d3adcd4/",
     },
     {
       id: 2,
       name: "Mobile",
-      price: 3455,
+      price: 110000,
       image:
-        "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://m.media-amazon.com/images/I/71lD7eGdW-L._SL1500_.jpg",
     },
     {
       id: 3,
       name: "Pc",
-      price: 3423545,
+      price: 50000,
       image:
-        "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://dlcdnwebimgs.asus.com/gain/b07a6f5f-b5d4-4ec8-b756-44d3ccc64fc3//fwebp",
     },
   ];
 
@@ -79,7 +79,7 @@ function App() {
       }}
     >
       <NavBar cartItemCount={cartItemCount} />
-      <h1 style={{ textAlign: "center" }}>Eccomerce</h1>
+      <strong style={{ textAlign: "center", fontSize:"60px",padding:"15px" }}>Lets Shop together </strong>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {products.map((product) => (
           <ProductsCard
@@ -89,7 +89,8 @@ function App() {
           />
         ))}
       </div>
-      <ProductsCart items={cartItem} removeCartItem ={removeCartItem} onRemoveFromCart={onRemoveFromCart} />
+      <strong style={{ textAlign: "center", fontSize:"60px",padding:"15px" }}>Shopping Cart </strong>
+      <ProductsCart items={cartItem} removeCartItem ={removeCartItem} onRemoveFromCart={onRemoveFromCart}  onAddToCart={onAddToCart} />
     </div>
   );
 }
